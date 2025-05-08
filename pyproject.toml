@@ -1,0 +1,42 @@
+[project]
+name = "cfundata"
+version = "0.2.8"
+description = "my data"
+readme = "README.md"
+authors = [{ name = "zoushucai", email = "zoushucai@users.noreply.github.com" }]
+requires-python = ">=3.10"
+dependencies = ["pooch>=1.8.2"]
+
+[project.scripts]
+cfundata = "cfundata:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+# 排除不需要打包的文件 
+# (由于 uv 可以忽略.gitignore中的文件,但我想把这些文件上传 git,但不上传到 pypi)
+[tool.hatch.build]
+exclude = ["*.onnx", "*.pt", "*.parquet", "*.ttc"]
+
+[dependency-groups]
+dev = [
+    "mkdocs>=1.6.1",
+    "mkdocs-autorefs>=1.4.1",
+    "mkdocs-material>=9.6.12",
+    "mkdocstrings[python]>=0.29.1",
+    "modelscope>=1.25.0",
+    "pytest>=8.3.5",
+    "tqdm>=4.50.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]       #将测试发现路径设置为tests目录。
+python_files = "test_*.py"  #指定测试文件应以test_开头。
+python_functions = "test_*" #指定测试函数应以test_开头。
+
+[project.urls]
+Homepage = "https://github.com/zoushucai/cfundata"
+Documentation = "https://cfundata.readthedocs.org"
+Repository = "https://github.com/zoushucai/cfundata.git"
+Issues = "https://github.com/zoushucai/cfundata/issues"
+Changelog = "https://github.com/zoushucai/cfundata/blob/main/CHANGELOG.md"
