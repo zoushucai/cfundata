@@ -19,7 +19,7 @@ jobs:
       # You can test your matrix by printing the current Python version
       - name: install dependencies
         run: |
-          pip install cfundata
+          pip install -U cfundata
       - name: run tests
         run: |
           python tests/test_all.py

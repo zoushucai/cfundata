@@ -39,6 +39,7 @@ class DataPath:
         FONT_SIMSUN (Path): SimSun字体文件路径
         FREQUENCY (Path): 频率数据文件路径
         FREQUENCY2 (Path): 频率数据文件路径2
+        SFZ_DET_ONNX (Path): sfz检测模型的ONNX文件路径, 大约7000张图片训练的，返回四个类别框，0,3代表反面（国徽），1,2代表正面(头像)
 
     !!! note
         DX_* 的文件,是dx的点选和语序yzm训练而来的, 大约采用了1.4w张图片训练的.
@@ -68,6 +69,7 @@ class DataPath:
     FONT_SIMSUN: Path
     FREQUENCY: Path
     FREQUENCY2: Path
+    SFZ_DET_ONNX: Path = None
 
 
 def initialize_datapath() -> DataPath:

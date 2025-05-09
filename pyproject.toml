@@ -1,11 +1,13 @@
 [project]
 name = "cfundata"
-version = "0.2.8"
+version = "0.2.9"
 description = "my data"
 readme = "README.md"
 authors = [{ name = "zoushucai", email = "zoushucai@users.noreply.github.com" }]
 requires-python = ">=3.10"
-dependencies = ["pooch>=1.8.2"]
+dependencies = [
+    "pooch>=1.8.2",
+]
 
 [project.scripts]
 cfundata = "cfundata:main"

@@ -44,7 +44,9 @@ if __name__ == "__main__":
     # 写为 json 文件
     # print(result)
     json_path = jsonname  # 手动移动到目标目录 data / jsonname
+    result = sorted(result, key=lambda x: x["name"])
+
     with open(str(json_path), "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=2, ensure_ascii=False)
+        json.dump(result, f, indent=2, ensure_ascii=False, sort_keys=True)
 
     print(f"{jsonname} saved to {json_path}")

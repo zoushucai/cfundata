@@ -1,37 +1,42 @@
 [
   {
-    "name": "frequency2.parquet",
-    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/frequency2.parquet",
-    "sha256": "898933afa2e54af06fcb9823b11afaa83680a3ab28738bd1c048ccba69565fac"
-  },
-  {
-    "name": "dx_det.pt",
-    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/dx_det.pt",
-    "sha256": "56393c8a3e19badf1fb74a690deb1d78e42d01ea3635932f71e4c3a1a0e1a589"
+    "name": "dx_cls.onnx",
+    "sha256": "8090375bbc3f359cfe8ec23b25e264d78054e79eb5b58e188c56aaf8efa65478",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/dx_cls.onnx"
   },
   {
     "name": "dx_cls.pt",
-    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/dx_cls.pt",
-    "sha256": "568ac1e342fbc520271a9b5d62bc3c3137f755c5e61d97371433832ae350ed87"
-  },
-  {
-    "name": "frequency.parquet",
-    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/frequency.parquet",
-    "sha256": "ccce7d75f0f6512443e9e2488b37d3e9f5bf99b4a1b06c95e962582b589d4768"
-  },
-  {
-    "name": "simsun.ttc",
-    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/simsun.ttc",
-    "sha256": "120a51d2b14eb588700a21e15fc301f0ea55d7c1a4e1f3ae61db83b7c8d42cd6"
-  },
-  {
-    "name": "dx_cls.onnx",
-    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/dx_cls.onnx",
-    "sha256": "8090375bbc3f359cfe8ec23b25e264d78054e79eb5b58e188c56aaf8efa65478"
+    "sha256": "568ac1e342fbc520271a9b5d62bc3c3137f755c5e61d97371433832ae350ed87",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/dx_cls.pt"
   },
   {
     "name": "dx_det.onnx",
-    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/dx_det.onnx",
-    "sha256": "e967b2d44cfa743788c502c5e0af094dcd68353b9062235540ae7e6521381bfa"
+    "sha256": "e967b2d44cfa743788c502c5e0af094dcd68353b9062235540ae7e6521381bfa",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/dx_det.onnx"
+  },
+  {
+    "name": "dx_det.pt",
+    "sha256": "56393c8a3e19badf1fb74a690deb1d78e42d01ea3635932f71e4c3a1a0e1a589",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/dx_det.pt"
+  },
+  {
+    "name": "frequency.parquet",
+    "sha256": "ccce7d75f0f6512443e9e2488b37d3e9f5bf99b4a1b06c95e962582b589d4768",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/frequency.parquet"
+  },
+  {
+    "name": "frequency2.parquet",
+    "sha256": "898933afa2e54af06fcb9823b11afaa83680a3ab28738bd1c048ccba69565fac",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/frequency2.parquet"
+  },
+  {
+    "name": "sfz_det.onnx",
+    "sha256": "025953c59a7218ccb467783f579070056502baf1569938f148115c4f00a51c04",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/sfz_det.onnx"
+  },
+  {
+    "name": "simsun.ttc",
+    "sha256": "120a51d2b14eb588700a21e15fc301f0ea55d7c1a4e1f3ae61db83b7c8d42cd6",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/simsun.ttc"
   }
 ]
