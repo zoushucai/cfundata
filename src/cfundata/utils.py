@@ -135,6 +135,7 @@ def initialize_datapath() -> DataPath:
         "simsun.ttc",
         "frequency.parquet",
         "frequency2.parquet",
+        "sfz_det.onnx",
     ]
     missing = [key for key in required_keys if key not in paths]
     if missing:
@@ -149,4 +150,5 @@ def initialize_datapath() -> DataPath:
         FONT_SIMSUN=paths["simsun.ttc"],
         FREQUENCY=paths["frequency.parquet"],
         FREQUENCY2=paths["frequency2.parquet"],
+        SFZ_DET_ONNX=paths["sfz_det.onnx"],
     )
