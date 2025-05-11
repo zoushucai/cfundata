@@ -55,10 +55,11 @@ class DataPath:
 
     Example:
         ```python
-        from cfundata import datapath
-        print(datapath.DX_DET_ONNX)
-        print(datapath.DX_CLS_ONNX)
-        print(datapath)
+        from cfundata import cdata
+        # cdata 是一个DataPath对象, 包含了所有数据文件的路径
+        print(cdata.DX_DET_ONNX)
+        print(cdata.DX_CLS_ONNX)
+        print(cdata)
         ```
     """
 
@@ -69,7 +70,7 @@ class DataPath:
     FONT_SIMSUN: Path
     FREQUENCY: Path
     FREQUENCY2: Path
-    SFZ_DET_ONNX: Path = None
+    SFZ_DET_ONNX: Path
 
 
 def initialize_datapath() -> DataPath:
@@ -96,12 +97,8 @@ def initialize_datapath() -> DataPath:
     resources = _read_json(sha256_path)
 
     # 2. 构造 registry 和 urls
-    registry = {}
-    urls = {}
-    for item in resources:
-        name = item["name"]
-        registry[name] = item["sha256"]
-        urls[name] = item["url"]
+    registry = {r["name"]: r["sha256"] for r in resources}
+    urls = {r["name"]: r["url"] for r in resources}
 
     # 3. 初始化 pooch
     pup = pooch.create(
@@ -111,44 +108,36 @@ def initialize_datapath() -> DataPath:
         urls=urls,
     )
 
-    # 4. 加载路径：优先从包内加载，失败则从缓存中下载
+    # 4. 加载路径：优先从包内加载，失败则从缓存中下载, 且强制返回Path对象
     paths: dict[str, Path] = {}
     for name in registry:
         package_path = pkg_resources.files("cfundata.data").joinpath(name)
         try:
             # 使用 with as_file
             with pkg_resources.as_file(package_path) as local_path:
-                paths[name] = (
+                p = (
                     local_path
                     if local_path.exists()
                     else pup.fetch(name, progressbar=show_bar)
                 )
+                paths[name] = Path(p)
         except Exception:
-            paths[name] = pup.fetch(name, progressbar=show_bar)
+            paths[name] = Path(pup.fetch(name, progressbar=show_bar))
 
     # 5. 显式验证需要的关键文件存在（防止 KeyError）
-    required_keys = [
-        "dx_det.onnx",
-        "dx_cls.onnx",
-        "dx_det.pt",
-        "dx_cls.pt",
-        "simsun.ttc",
-        "frequency.parquet",
-        "frequency2.parquet",
-        "sfz_det.onnx",
-    ]
-    missing = [key for key in required_keys if key not in paths]
+    field_map = {
+        "DX_DET_ONNX": "dx_det.onnx",
+        "DX_CLS_ONNX": "dx_cls.onnx",
+        "DX_DET_PT": "dx_det.pt",
+        "DX_CLS_PT": "dx_cls.pt",
+        "FONT_SIMSUN": "simsun.ttc",
+        "FREQUENCY": "frequency.parquet",
+        "FREQUENCY2": "frequency2.parquet",
+        "SFZ_DET_ONNX": "sfz_det.onnx",
+    }
+    missing = [fname for fname in field_map.values() if fname not in paths]
     if missing:
         raise ValueError(f"Missing required files: {missing}")
 
-    # 6. 构建并返回 DataPath 实例
-    return DataPath(
-        DX_DET_ONNX=paths["dx_det.onnx"],
-        DX_CLS_ONNX=paths["dx_cls.onnx"],
-        DX_DET_PT=paths["dx_det.pt"],
-        DX_CLS_PT=paths["dx_cls.pt"],
-        FONT_SIMSUN=paths["simsun.ttc"],
-        FREQUENCY=paths["frequency.parquet"],
-        FREQUENCY2=paths["frequency2.parquet"],
-        SFZ_DET_ONNX=paths["sfz_det.onnx"],
-    )
+    # 6 自动构建 DataPath 对象
+    return DataPath(**{field: paths[filename] for field, filename in field_map.items()})

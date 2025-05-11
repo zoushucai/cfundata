@@ -1,6 +1,6 @@
 [project]
 name = "cfundata"
-version = "0.3.0"
+version = "0.3.1"
 description = "my data"
 readme = "README.md"
 authors = [{ name = "zoushucai", email = "zoushucai@users.noreply.github.com" }]
