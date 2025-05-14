@@ -30,6 +30,16 @@
     "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/frequency2.parquet"
   },
   {
+    "name": "gt3_word_cls.onnx",
+    "sha256": "b6aed179b92bf7832f6fa8b39d9d3a6e3ae9befcc6222b19bf354465f73667a8",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/gt3_word_cls.onnx"
+  },
+  {
+    "name": "gt3_word_det.onnx",
+    "sha256": "5f3ebc57baa48bc3fb375d8f3c01607b1fed546dbccd61243fa5287eed75763d",
+    "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/gt3_word_det.onnx"
+  },
+  {
     "name": "sfz_det.onnx",
     "sha256": "29dfc59cb04b0ec95c917515a79de23967818b15cc1df1f93aaa82bdc6e0ce98",
     "url": "https://modelscope.cn/datasets/zscmmm/cfundata/resolve/master/data/sfz_det.onnx"

@@ -71,6 +71,8 @@ class DataPath:
     FREQUENCY: Path
     FREQUENCY2: Path
     SFZ_DET_ONNX: Path
+    GT3_WORD_CLS_ONNX: Path
+    GT3_WORD_DET_ONNX: Path
 
 
 def initialize_datapath() -> DataPath:
@@ -134,6 +136,8 @@ def initialize_datapath() -> DataPath:
         "FREQUENCY": "frequency.parquet",
         "FREQUENCY2": "frequency2.parquet",
         "SFZ_DET_ONNX": "sfz_det.onnx",
+        "GT3_WORD_CLS_ONNX": "gt3_word_cls.onnx",
+        "GT3_WORD_DET_ONNX": "gt3_word_det.onnx",
     }
     missing = [fname for fname in field_map.values() if fname not in paths]
     if missing:
